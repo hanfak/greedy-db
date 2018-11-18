@@ -2,7 +2,10 @@ TODO:
 
 * (x) Task
     * Tests
-        * (x) Yatspec setup
+        * (x) Yatspec setup for acceptance tests (test usecase)
+        * (x) Integration tests with database and rest
+        * (x) End to end tests (whole app up and dependecies up)
+            * (x) ?? mock call to webserver
         * (*) Stub to continually update db with dummy data, and add specific data
     * (x) clean architecture
         * Core
@@ -13,6 +16,8 @@ TODO:
                 * store stream data point
                     - Validate json, timestamp  & stream exisits
                     - Store it
+                    - Usecase for Employer and Clicks stream
+                    - !!!! Decision - Do I give the click object to repository to store however it sees fit OR do i store origin, retrive foreign key, and store origin id and click ???
                 * search stream at time for field
                     - field exists for stream
                     - timestamp exists with 30 minutes before going to dataprovider
@@ -20,6 +25,8 @@ TODO:
                     - return it
                 * search latest stream for field
                 * search oldest stream for field
+            * Interfaces/adapters
+            * Logging
         * Infrastructure
             * dataproviders
                 * (x) database, mysql or mongodb??, connection pool???,
@@ -44,33 +51,35 @@ TODO:
         - Run a job every minute that deletes json objects in each stream greater than 30 minutes
         - Quartz
     * End points for services
-        * (x) /import/{streamName}
+        * (x) POST /import/{streamName}
             - Service to add single stream of json to db
+                - for each streamName will go to specific usecase
             - Return 204
             - Sad Path: 404, Body: Could not store
             - ?? If Stream does not exist, add new table, else add available table
             - Sad Path: issues with database
             - Sad Path: timestamp not present
             - Sad Path: stream exist, but format of json is not compliant
-        * (x) /query/{streamName}/{timestamp}/{jsonPath}
+        * (x) GET /query/{streamName}/{timestamp}/{jsonPath}
             - Service to return the value of the field specified with the JSON Path for the given stream on a given timestamp.
             - Happy Path: return 200 and json of key value pair
             - Sad Path: 404, Body: No stream
-        * (x) /query/{streamName}/latest/{jsonPath}
+        * (x) GET /query/{streamName}/latest/{jsonPath}
             - Service to return the latest value of the field specified with the JSON Path for the given stream.
             - Happy Path: return 200 and json of key value pair
             - Sad Path: 404, Body: No stream
-        * (x) /query/{streamName}/oldest/{jsonPath}
+        * (x) GET /query/{streamName}/oldest/{jsonPath}
             - Service to return the oldest value of the field specified with the JSON Path for the given stream.
             - Happy Path: return 200 and json of key value pair
             - Sad Path: 404, Body: No stream
-        * (*) /deleteOldData ????
+        * (*) DELETE /deleteOldData ????
             - Deletes all data greater than 30 minutes
             - Happy Path: 204
 * (x) seperate acceptance tests into module
 * (x) run via docker ???
     * (x) db container
     * (x) stub container, which populates db with data
+* (x) Scripts to run
 * (x) Use Kafka streams ???
 * (x) Parallel processing for mass and/or concurrent numbers of imports
 * (x) Build - Gradle
