@@ -4,9 +4,9 @@ import com.hanfak.greedydb.YatspecAcceptanceBusinessRequirementsTest;
 import com.hanfak.greedydb.core.domain.Click;
 import com.hanfak.greedydb.core.domain.Employer;
 import com.hanfak.greedydb.core.domain.Origin;
+import com.hanfak.greedydb.core.usecases.EmployerStreamRepository;
 import com.hanfak.greedydb.core.usecases.importstreamevent.click.ClickStreamRepository;
 import com.hanfak.greedydb.core.usecases.importstreamevent.click.ImportClickStreamEventUsecase;
-import com.hanfak.greedydb.core.usecases.importstreamevent.employer.EmployerStreamRepository;
 import com.hanfak.greedydb.core.usecases.importstreamevent.employer.ImportEmployerStreamEventUsecase;
 import org.junit.Test;
 
