@@ -3,7 +3,8 @@ package com.hanfak.greedydb.core.usecases.queries.employer;
 import com.hanfak.greedydb.core.usecases.EmployerStreamRepository;
 
 import java.sql.Timestamp;
-// TODO make more abstract, factory for repository, repository implements interface for just findFieldForGivenTimestamp
+// TODO make more abstract, factory for repository - switch/strategy,
+// repository implements interface for just findFieldForGivenTimestamp
 // webservice calls factory which passes the correct repository into the abstract usecase
 
 public class QueryEmployerStreamForGivenTimestampAndFieldUsecase {

@@ -30,8 +30,21 @@ TODO:
         * Infrastructure
             * dataproviders
                 * (x) database, mysql or mongodb??, connection pool???,
+                    * Store the object and fields in db,
+                        * import: convert to json to objects, pass objects to sql insert
+                        * Query: sql finds the results, sql query result to value or smaller object
+                        * Issues: lots of tables, relations,complex queries
+                        * Benefits: sql query faster, easy to validate each field, easier to do complex queries with conditions on other fields in future
+                    * store timestamp and json as whole in db field so usecase can call json library (in infrastructure) to find value for a specific field
+                        * import: extract timestamp, pass timestamp and json to sql insert
+                        * query: query with conditions on timestamp, result is json string, convert to object or jackson
+                        * Issues: size of json to store, convert json string into object, querying on other fields will be complex in java (turn to array, loading lots of data in memory)
+                        * Benefits: simple tables, simple queries, java code will search for field
             * entrypoints
                 * (x) Web - Jetty webserver
+                    * Validate well formed json
+                    * Handle unknown stream name in path, ie 404
+                    * Handle null values returned from use case
                 * (x) Scheduled Jobs
         * Configuration
             * (x) dependency injection/wiring (guice?)
@@ -88,3 +101,8 @@ Links
 
 * https://github.com/erh/mongo-jdbc/blob/master/examples/blog.java
 * https://www.journaldev.com/2403/google-guice-dependency-injection-example-tutorial
+* https://www.baeldung.com/jackson-object-mapper-tutorial
+* https://softwareengineering.stackexchange.com/questions/171024/never-do-in-code-what-you-can-get-the-sql-server-to-do-well-for-you-is-this/171033
+* http://ashkrit.blogspot.com/2014/10/factory-without-if-else.html
+* http://blogs.microsoft.co.il/gilf/2009/11/22/applying-strategy-pattern-instead-of-using-switch-statements/
+* http://blogs.microsoft.co.il/gilf/2009/11/22/applying-strategy-pattern-instead-of-using-switch-statements/

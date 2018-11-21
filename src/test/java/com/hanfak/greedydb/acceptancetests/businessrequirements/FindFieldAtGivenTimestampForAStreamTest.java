@@ -1,30 +1,46 @@
 package com.hanfak.greedydb.acceptancetests.businessrequirements;
 
-import com.hanfak.greedydb.YatspecAcceptanceBusinessRequirementsTest;
-import com.hanfak.greedydb.core.usecases.EmployerStreamRepository;
+import com.hanfak.greedydb.acceptancetests.YatspecAcceptanceBusinessRequirementsTest;
+import com.hanfak.greedydb.core.usecases.queries.click.QueryClickStreamForGivenTimestampAndFieldUsecase;
 import com.hanfak.greedydb.core.usecases.queries.employer.QueryEmployerStreamForGivenTimestampAndFieldUsecase;
 import org.junit.Test;
 
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class FindFieldAtGivenTimestampForAStreamTest extends YatspecAcceptanceBusinessRequirementsTest {
 
     @Test
-    public void blah() {
+    public void returnsTheFieldValueGivenTheTimestampForAnEmployerStream() {
         givenAnEventForEmployerStreamIsStored();
 
         whenTheApiToQueryTheEmployerStreamIsCalledForAGivenTimestamp(timestamp, andField(JSON_PATH));
 
-        thenTheValueOfTheFieldIs("12345");
+        thenTheValueOfTheFieldFromTheEmployerStreamIs("12345");
+    }
+
+    @Test
+    public void returnsTheFieldValueGivenTheTimestampForAClickStream() {
+        givenAnEventForClicktreamIsStored();
+
+        whenTheApiToQueryTheClickStreamIsCalledForAGivenTimestamp(timestamp, andField(JSON_PATH));
+
+        thenTheValueOfTheFieldFromTheClickStreamIs("12345");
+    }
+
+    private void givenAnEventForClicktreamIsStored() {
+        when(clickStreamRepository.findFieldForGivenTimestamp(timestamp,JSON_PATH)).thenReturn("12345");
+
     }
 
     private void givenAnEventForEmployerStreamIsStored() {
         when(employerStreamRepository.findFieldForGivenTimestamp(timestamp,JSON_PATH)).thenReturn("12345");
+    }
+
+    private void whenTheApiToQueryTheClickStreamIsCalledForAGivenTimestamp(Timestamp timestamp, String jsonPath) {
+        fieldValue = queryClickStreamForGivenTimestampAndFieldUsecase.queryClickStream(timestamp, jsonPath);
     }
 
     private void whenTheApiToQueryTheEmployerStreamIsCalledForAGivenTimestamp(Timestamp timestamp, String jsonPath) {
@@ -32,8 +48,14 @@ public class FindFieldAtGivenTimestampForAStreamTest extends YatspecAcceptanceBu
     }
 
     @SuppressWarnings("SameParameterValue") // For readability
-    private void thenTheValueOfTheFieldIs(String expectedFieldValue) {
+    private void thenTheValueOfTheFieldFromTheEmployerStreamIs(String expectedFieldValue) {
         verify(employerStreamRepository).findFieldForGivenTimestamp(timestamp, JSON_PATH);
+        assertThat(fieldValue).isEqualTo(expectedFieldValue);
+    }
+
+    @SuppressWarnings("SameParameterValue") // For readability
+    private void thenTheValueOfTheFieldFromTheClickStreamIs(String expectedFieldValue) {
+        verify(clickStreamRepository).findFieldForGivenTimestamp(timestamp, JSON_PATH);
         assertThat(fieldValue).isEqualTo(expectedFieldValue);
     }
 
@@ -45,9 +67,7 @@ public class FindFieldAtGivenTimestampForAStreamTest extends YatspecAcceptanceBu
     private String fieldValue;
 
     private static final String JSON_PATH = "id";
-    private final LocalDateTime dateTime = LocalDateTime.now();
-    private final Timestamp timestamp = Timestamp.valueOf(dateTime);
-    private final EmployerStreamRepository employerStreamRepository = mock(EmployerStreamRepository.class);
 
     private final QueryEmployerStreamForGivenTimestampAndFieldUsecase queryEmployerStreamForGivenTimestampAndFieldUsecase = new QueryEmployerStreamForGivenTimestampAndFieldUsecase(employerStreamRepository);
+    private final QueryClickStreamForGivenTimestampAndFieldUsecase queryClickStreamForGivenTimestampAndFieldUsecase = new QueryClickStreamForGivenTimestampAndFieldUsecase(clickStreamRepository);
 }
