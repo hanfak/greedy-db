@@ -31,12 +31,12 @@ public class FindFieldAtGivenTimestampForAStreamTest extends YatspecAcceptanceBu
     }
 
     private void givenAnEventForClicktreamIsStored() {
-        when(clickStreamRepository.findFieldForGivenTimestamp(timestamp,JSON_PATH)).thenReturn("12345");
+        when(clickStreamRepository.findFieldForGivenTimestamp(timestamp,JSON_PATH)).thenReturn(12345L);
 
     }
 
     private void givenAnEventForEmployerStreamIsStored() {
-        when(employerStreamRepository.findFieldForGivenTimestamp(timestamp,JSON_PATH)).thenReturn("12345");
+        when(employerStreamRepository.findFieldForGivenTimestamp(timestamp,JSON_PATH)).thenReturn(12345L);
     }
 
     private void whenTheApiToQueryTheClickStreamIsCalledForAGivenTimestamp(Timestamp timestamp, String jsonPath) {

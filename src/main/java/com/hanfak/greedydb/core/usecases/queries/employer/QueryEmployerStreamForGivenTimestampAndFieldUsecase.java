@@ -15,6 +15,6 @@ public class QueryEmployerStreamForGivenTimestampAndFieldUsecase {
     }
 
     public String queryEmployerStream(Timestamp timestamp, String jsonPath) {
-        return employerStreamRepository.findFieldForGivenTimestamp(timestamp, jsonPath);
+        return String.valueOf(employerStreamRepository.findFieldForGivenTimestamp(timestamp, jsonPath));
     }
 }

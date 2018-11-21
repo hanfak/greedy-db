@@ -1,6 +1,6 @@
 package com.hanfak.greedydb.core.usecases.importstreamevent.employer;
 
-import com.hanfak.greedydb.core.domain.Employer;
+import com.hanfak.greedydb.core.domain.employer.Employer;
 import com.hanfak.greedydb.core.usecases.EmployerStreamRepository;
 
 public class ImportEmployerStreamEventUsecase {

@@ -1,6 +1,6 @@
 package com.hanfak.greedydb.core.usecases;
 
-import com.hanfak.greedydb.core.domain.Employer;
+import com.hanfak.greedydb.core.domain.employer.Employer;
 
 import java.sql.Timestamp;
 
@@ -8,5 +8,5 @@ import java.sql.Timestamp;
 public interface EmployerStreamRepository {
     void storeEventInStream(Employer employer);
 
-    String findFieldForGivenTimestamp(Timestamp timestamp, String jsonPath); // seperate interface
+    Long findFieldForGivenTimestamp(Timestamp timestamp, String jsonPath); // seperate interface
 }

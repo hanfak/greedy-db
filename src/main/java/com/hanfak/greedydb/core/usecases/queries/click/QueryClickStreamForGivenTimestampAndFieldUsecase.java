@@ -12,6 +12,6 @@ public class QueryClickStreamForGivenTimestampAndFieldUsecase {
     }
 
     public String queryClickStream(Timestamp timestamp, String jsonPath) {
-        return clickStreamRepository.findFieldForGivenTimestamp(timestamp, jsonPath);
+        return String.valueOf(clickStreamRepository.findFieldForGivenTimestamp(timestamp, jsonPath));
     }
 }
