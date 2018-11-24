@@ -7,7 +7,7 @@ import java.sql.Timestamp;
 public class Click extends ValueType {
     private final Timestamp timestamp;
     private final Page page;
-    public final Origin origin;
+    private final Origin origin;
 
     private Click(Timestamp timestamp, Page page, Origin origin) {
         this.timestamp = timestamp;

@@ -20,4 +20,20 @@ public class Employer extends ValueType {
     public static Employer employer(Timestamp timestamp, Id id, Name name, Surname surname) {
         return new Employer(timestamp, id, name, surname);
     }
+
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public Long getId() {
+        return id.value;
+    }
+
+    public String getName() {
+        return name.value;
+    }
+
+    public String getSurname() {
+        return surname.value;
+    }
 }

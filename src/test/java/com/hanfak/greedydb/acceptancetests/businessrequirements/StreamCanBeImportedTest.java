@@ -3,8 +3,8 @@ package com.hanfak.greedydb.acceptancetests.businessrequirements;
 import com.hanfak.greedydb.acceptancetests.YatspecAcceptanceBusinessRequirementsTest;
 import com.hanfak.greedydb.core.domain.click.*;
 import com.hanfak.greedydb.core.domain.employer.Employer;
-import com.hanfak.greedydb.core.usecases.importstreamevent.click.ImportClickStreamEventUsecase;
-import com.hanfak.greedydb.core.usecases.importstreamevent.employer.ImportEmployerStreamEventUsecase;
+import com.hanfak.greedydb.core.usecases.addstreamevent.click.ImportClickStreamEventUsecase;
+import com.hanfak.greedydb.core.usecases.addstreamevent.employer.ImportEmployerStreamEventUsecase;
 import org.junit.Test;
 
 import static com.hanfak.greedydb.core.domain.employer.Employer.employer;

@@ -8,5 +8,8 @@ import java.sql.Timestamp;
 public interface EmployerStreamRepository {
     void storeEventInStream(Employer employer);
 
+    // TODO return String
     Long findFieldForGivenTimestamp(Timestamp timestamp, String jsonPath); // seperate interface
+
+    Employer findFieldForLatestTimestamp();
 }

@@ -1,6 +1,7 @@
-package com.hanfak.greedydb.core.usecases.importstreamevent.click;
+package com.hanfak.greedydb.core.usecases.addstreamevent.click;
 
 import com.hanfak.greedydb.core.domain.click.Click;
+import com.hanfak.greedydb.core.usecases.ClickStreamRepository;
 
 public class ImportClickStreamEventUsecase {
     private final ClickStreamRepository clickStreamRepository;

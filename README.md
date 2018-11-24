@@ -94,7 +94,7 @@ TODO:
     * (x) stub container, which populates db with data
 * (x) Scripts to run
 * (x) Use Kafka streams ???
-* (x) Parallel processing for mass and/or concurrent numbers of imports
+* (x) Parallel processing for mass and/or concurrent numbers of imports, how to handle reads and imports
 * (x) Build - Gradle
 
 Links

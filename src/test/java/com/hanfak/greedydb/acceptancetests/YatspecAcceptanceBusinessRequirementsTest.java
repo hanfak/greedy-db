@@ -1,8 +1,8 @@
 package com.hanfak.greedydb.acceptancetests;
 
 import com.googlecode.yatspec.junit.SpecRunner;
+import com.hanfak.greedydb.core.usecases.ClickStreamRepository;
 import com.hanfak.greedydb.core.usecases.EmployerStreamRepository;
-import com.hanfak.greedydb.core.usecases.importstreamevent.click.ClickStreamRepository;
 import org.assertj.core.api.WithAssertions;
 import org.junit.runner.RunWith;
 

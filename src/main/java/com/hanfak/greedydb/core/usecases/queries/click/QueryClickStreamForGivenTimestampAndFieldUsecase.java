@@ -1,6 +1,6 @@
 package com.hanfak.greedydb.core.usecases.queries.click;
 
-import com.hanfak.greedydb.core.usecases.importstreamevent.click.ClickStreamRepository;
+import com.hanfak.greedydb.core.usecases.ClickStreamRepository;
 
 import java.sql.Timestamp;
 

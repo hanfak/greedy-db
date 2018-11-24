@@ -1,4 +1,4 @@
-package com.hanfak.greedydb.core.usecases.importstreamevent.click;
+package com.hanfak.greedydb.core.usecases;
 
 import com.hanfak.greedydb.core.domain.click.Click;
 
