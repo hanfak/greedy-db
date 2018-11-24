@@ -3,9 +3,11 @@ TODO:
 * (x) Task
     * Tests
         * (x) Yatspec setup for acceptance tests (test usecase)
-        * (x) Integration tests with database and rest
+        * (x) Integration tests with database and http call
+            * No need todo for db, as no database being used initially
+            * For http, have jetty up (app started) and do some tests
         * (x) End to end tests (whole app up and dependecies up)
-            * (x) ?? mock call to webserver
+            * -(x) ?? mock call to webserver- Use a real jetty server, could look for something like MockMvcBuilder in Spring
         * (*) Stub to continually update db with dummy data, and add specific data
     * (x) clean architecture
         * Core
@@ -30,16 +32,27 @@ TODO:
         * Infrastructure
             * dataproviders
                 * (x) database, mysql or mongodb??, connection pool???,
-                    * Store the object and fields in db,
-                        * import: convert to json to objects, pass objects to sql insert
-                        * Query: sql finds the results, sql query result to value or smaller object
-                        * Issues: lots of tables, relations,complex queries
-                        * Benefits: sql query faster, easy to validate each field, easier to do complex queries with conditions on other fields in future
-                    * store timestamp and json as whole in db field so usecase can call json library (in infrastructure) to find value for a specific field
-                        * import: extract timestamp, pass timestamp and json to sql insert
-                        * query: query with conditions on timestamp, result is json string, convert to object or jackson
-                        * Issues: size of json to store, convert json string into object, querying on other fields will be complex in java (turn to array, loading lots of data in memory)
-                        * Benefits: simple tables, simple queries, java code will search for field
+                    * Solutions for database
+                        * Store the object and fields in db,
+                            * import: convert to json to objects, pass objects to sql insert
+                            * Query: sql finds the results, sql query result to value or smaller object
+                            * Issues: lots of tables, relations,complex queries
+                            * Benefits: sql query faster, easy to validate each field, easier to do complex queries with conditions on other fields in future
+                        * store timestamp and json as whole in db field so usecase can call json library (in infrastructure) to find value for a specific field
+                            * import: extract timestamp, pass timestamp and json to sql insert
+                            * query: query with conditions on timestamp, result is json string, convert to object or jackson
+                            * Issues: size of json to store, convert json string into object, querying on other fields will be complex in java (turn to array, loading lots of data in memory)
+                            * Benefits: simple tables, simple queries, java code will search for field
+                    * Should a database be used? Use an in memory hash map
+                        * Benefits: Faster, no i/o or network connections
+                        * Issues: No back up if down so data is lost,
+                        * Solutions: backup periodically when starting app load back up
+                    * Use java data structure, newed up at start (singleton), accessed only via repository interface.
+                        * Can always use a database, esp if doing a periodic back up
+                        * No integration test, as no need to have to test connection and integration with db and the flow
+                        * Could use stub map in test instead of using mockito and mocks, as should not really affect time of tests
+                        * Should do performance tests, to find best values for stack memory depending on number of imports ie java -Xmx128m MyClass
+                        * Use Collections data structures, if performance is low can use array types etc
             * entrypoints
                 * (x) Web - Jetty webserver
                     * Validate well formed json
