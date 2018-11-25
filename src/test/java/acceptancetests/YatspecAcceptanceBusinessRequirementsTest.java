@@ -1,4 +1,4 @@
-package com.hanfak.greedydb.acceptancetests;
+package acceptancetests;
 
 import com.googlecode.yatspec.junit.SpecRunner;
 import com.hanfak.greedydb.core.usecases.ClickStreamRepository;

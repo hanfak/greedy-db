@@ -1,6 +1,6 @@
-package com.hanfak.greedydb.acceptancetests.businessrequirements;
+package acceptancetests.businessrequirements;
 
-import com.hanfak.greedydb.acceptancetests.YatspecAcceptanceBusinessRequirementsTest;
+import acceptancetests.YatspecAcceptanceBusinessRequirementsTest;
 import com.hanfak.greedydb.core.usecases.queries.click.QueryClickStreamForLatestTimestampUsecase;
 import com.hanfak.greedydb.core.usecases.queries.employer.QueryEmployerStreamForLatestTimestampUsecase;
 import org.junit.Test;

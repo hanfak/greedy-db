@@ -1,6 +1,6 @@
-package com.hanfak.greedydb.acceptancetests.businessrequirements;
+package acceptancetests.businessrequirements;
 
-import com.hanfak.greedydb.acceptancetests.YatspecAcceptanceBusinessRequirementsTest;
+import acceptancetests.YatspecAcceptanceBusinessRequirementsTest;
 import com.hanfak.greedydb.core.domain.click.*;
 import com.hanfak.greedydb.core.domain.employer.Employer;
 import com.hanfak.greedydb.core.usecases.addstreamevent.click.ImportClickStreamEventUsecase;

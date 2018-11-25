@@ -32,6 +32,8 @@
     <assertj.version>3.4.1</assertj.version>
     <yatspec.version>1.22</yatspec.version>
     <commons.lang.version>3.4</commons.lang.version>
+    <jetty.version>9.4.4.v20170414</jetty.version>
+
   </properties>
 
   <build>
@@ -345,10 +347,25 @@
       <version>2.7</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/com.mashape.unirest/unirest-java -->
     <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>2.6.3</version>
+      <groupId>com.mashape.unirest</groupId>
+      <artifactId>unirest-java</artifactId>
+      <version>1.4.9</version>
+      <scope>test</scope>
     </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-server</artifactId>
+      <version>${jetty.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-servlet</artifactId>
+      <version>${jetty.version}</version>
+    </dependency>
+
   </dependencies>
 </project>
