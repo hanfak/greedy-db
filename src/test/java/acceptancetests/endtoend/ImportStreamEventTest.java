@@ -42,7 +42,7 @@ public class ImportStreamEventTest extends YatspecAcceptanceEndToEndTest {
     }
 
     @Before
-    public void startup() {
+    public void startup() throws Exception {
         application.start(configuration);
     }
 

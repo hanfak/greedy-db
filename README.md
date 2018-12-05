@@ -47,7 +47,7 @@ TODO:
                         * Benefits: Faster, no i/o or network connections
                         * Issues: No back up if down so data is lost,
                         * Solutions: backup periodically when starting app load back up
-                    * Use java data structure, newed up at start (singleton), accessed only via repository interface.
+                    * Use java data structure, newed up at startServer (singleton), accessed only via repository interface.
                         * Can always use a database, esp if doing a periodic back up
                         * No integration test, as no need to have to test connection and integration with db and the flow
                         * Could use stub map in test instead of using mockito and mocks, as should not really affect time of tests
