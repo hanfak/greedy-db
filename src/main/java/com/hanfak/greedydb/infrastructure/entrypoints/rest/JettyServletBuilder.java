@@ -20,8 +20,14 @@ public class JettyServletBuilder {
         return webServer.withContext(servletHandler);
     }
 
+    // Make generic for servlet
     public JettyServletBuilder registerEndPoint(EndPoint endPoint, TestServlet testServlet) {
         addServlet(testServlet, endPoint);
+        return this;
+    }
+
+    public JettyServletBuilder registerImportEmployerEndPoint(EndPoint endPoint, ImportEmployerServlet servlet) {
+        addServlet(servlet, endPoint);
         return this;
     }
 

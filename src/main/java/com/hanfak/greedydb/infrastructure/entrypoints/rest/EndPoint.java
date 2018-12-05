@@ -3,6 +3,7 @@ package com.hanfak.greedydb.infrastructure.entrypoints.rest;
 import java.util.List;
 
 import static java.util.Arrays.asList;
+import static java.util.Collections.emptyList;
 
 public class EndPoint {
     final String method;
@@ -17,5 +18,9 @@ public class EndPoint {
 
     public static EndPoint get(String path, String... parameterNames) {
         return new EndPoint("GET", path, asList(parameterNames));
+    }
+
+    public static EndPoint post(String path) {
+        return new EndPoint("POST", path, emptyList());
     }
 }
