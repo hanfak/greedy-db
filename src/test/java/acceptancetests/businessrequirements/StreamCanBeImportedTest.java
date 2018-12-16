@@ -39,10 +39,12 @@ public class StreamCanBeImportedTest extends YatspecAcceptanceBusinessRequiremen
     }
 
     private void thenTheEmployerStreamContainsThisEvent() {
+        log("Employer stored", employer);
         verify(employerStreamRepository).storeEventInStream(employer);
     }
 
     private void thenTheClickStreamContainsThisEvent() {
+        log("Click stored", click);
         verify(clickStreamRepository).storeEventInStream(click);
     }
 

@@ -1,5 +1,6 @@
 package com.hanfak.greedydb.infrastructure.entrypoints.rest;
 
+import com.hanfak.greedydb.infrastructure.entrypoints.rest.webserver.JettyWebServer;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.junit.Test;

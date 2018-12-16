@@ -1,8 +1,7 @@
 package com.hanfak.greedydb.configuration;
 
-import com.hanfak.greedydb.infrastructure.entrypoints.rest.ImportEmployerServlet;
-import com.hanfak.greedydb.infrastructure.entrypoints.rest.TestServlet;
 import com.hanfak.greedydb.infrastructure.entrypoints.rest.WebServer;
+import com.hanfak.greedydb.infrastructure.entrypoints.rest.servlets.TestServlet;
 
 import static com.hanfak.greedydb.infrastructure.entrypoints.rest.EndPoint.get;
 import static com.hanfak.greedydb.infrastructure.entrypoints.rest.EndPoint.post;
@@ -18,11 +17,11 @@ public class GreedyDb {
     public void start(ApplicationConfiguration configuration) {
         startWebServer(configuration);
     }
-
+// extract out newing up of objects
     private void startWebServer(ApplicationConfiguration configuration) {
         webServer = configuration.jettyWebServerBuilder()
-                .registerEndPoint(get("/test"), new TestServlet())
-                .registerImportEmployerEndPoint(post("/import/employer"), new ImportEmployerServlet())
+                .registerEndPoint(get("/test"), new TestServlet()) // remove
+                .registerImportEmployerEndPoint(post("/import/employer"), configuration.importEmployerServlet())
                 .build();
         webServer.startServer();
     }

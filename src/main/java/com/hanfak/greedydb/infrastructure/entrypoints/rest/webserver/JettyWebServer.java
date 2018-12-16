@@ -1,5 +1,6 @@
-package com.hanfak.greedydb.infrastructure.entrypoints.rest;
+package com.hanfak.greedydb.infrastructure.entrypoints.rest.webserver;
 
+import com.hanfak.greedydb.infrastructure.entrypoints.rest.WebServer;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 
@@ -32,7 +33,7 @@ public class JettyWebServer implements WebServer {
         }
     }
 
-    JettyWebServer withContext(ServletContextHandler servletHandler) {
+    public JettyWebServer withContext(ServletContextHandler servletHandler) {
         server.setHandler(servletHandler);
         return this;
     }

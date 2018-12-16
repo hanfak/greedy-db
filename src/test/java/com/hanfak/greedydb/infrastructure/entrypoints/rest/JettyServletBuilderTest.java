@@ -1,5 +1,8 @@
 package com.hanfak.greedydb.infrastructure.entrypoints.rest;
 
+import com.hanfak.greedydb.infrastructure.entrypoints.rest.servlets.TestServlet;
+import com.hanfak.greedydb.infrastructure.entrypoints.rest.webserver.JettyServletBuilder;
+import com.hanfak.greedydb.infrastructure.entrypoints.rest.webserver.JettyWebServer;
 import org.assertj.core.api.WithAssertions;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
@@ -15,7 +18,7 @@ public class JettyServletBuilderTest implements WithAssertions {
     private JettyWebServer webServer = mock(JettyWebServer.class);
     private TestServlet servlet = mock(TestServlet.class);
 
-    private final JettyServletBuilder JettyServletBuilder = new JettyServletBuilder(servletHandler, webServer);
+    private final com.hanfak.greedydb.infrastructure.entrypoints.rest.webserver.JettyServletBuilder JettyServletBuilder = new JettyServletBuilder(servletHandler, webServer);
     
     @Test
     public void shouldAddServletHandlerToServerWhenBuilt() {

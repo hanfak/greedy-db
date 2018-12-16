@@ -1,5 +1,6 @@
 package com.hanfak.greedydb.infrastructure.entrypoints.rest;
 
+import com.hanfak.greedydb.infrastructure.entrypoints.rest.servlets.TestServlet;
 import org.junit.Test;
 
 import javax.servlet.http.HttpServletResponse;

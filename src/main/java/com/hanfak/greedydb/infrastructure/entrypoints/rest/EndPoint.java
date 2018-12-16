@@ -7,7 +7,7 @@ import static java.util.Collections.emptyList;
 
 public class EndPoint {
     final String method;
-    final String path;
+    public final String path;
     final List<String> parameterNames;
 
     private EndPoint(String method, String path, List<String> parameterNames) {

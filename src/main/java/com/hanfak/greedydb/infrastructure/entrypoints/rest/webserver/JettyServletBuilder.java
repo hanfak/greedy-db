@@ -1,5 +1,8 @@
-package com.hanfak.greedydb.infrastructure.entrypoints.rest;
+package com.hanfak.greedydb.infrastructure.entrypoints.rest.webserver;
 
+import com.hanfak.greedydb.infrastructure.entrypoints.rest.EndPoint;
+import com.hanfak.greedydb.infrastructure.entrypoints.rest.servlets.TestServlet;
+import com.hanfak.greedydb.infrastructure.entrypoints.rest.servlets.importevent.ImportEmployerServlet;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 

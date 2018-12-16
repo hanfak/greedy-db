@@ -7,7 +7,7 @@ import java.sql.Timestamp;
 public class Employer extends ValueType {
 
     private final Timestamp timestamp;
-    private final Id id;
+    public final Id id;
     private final Name name;
     private final Surname surname;
 
